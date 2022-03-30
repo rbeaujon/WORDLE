@@ -1,8 +1,9 @@
-import { LOG } from './wordle.actions';
+import { LOG, TECLADO } from './wordle.actions';
 
 export const getinitialState = () => ({
-    attempts: null,
-    hits: null
+    attempts: 0,
+    hits: null,
+    word:[]
 });
 
 export const wordleReducer = (
@@ -19,7 +20,18 @@ export const wordleReducer = (
             attempts: payload.attempts,
             hits:  payload.hits
         } 
-              
+    case TECLADO:
+        const { word } = state;
+        if(word.length < 30){
+            var cant = word.push(payload.keyAction);
+        }
+        
+  
+        return {
+            ...state,
+            attempts: cant
+        }
+    
     // eslint-disable-next-line no-fallthrough
     default:
             return state;
