@@ -1,0 +1,14 @@
+.keyboard-container {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100vw;
+    border-style: groove;
+    margin-bottom: 50px;
+ }   
+.keyboard-container  input {
+    border-color: rgb(141, 143, 143);
+    width: 20vw;
+}
+
+

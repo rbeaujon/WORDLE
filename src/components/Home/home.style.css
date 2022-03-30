@@ -1,0 +1,12 @@
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 4px;
+    grid: 2px;
+    width:30vw;
+    margin: 10vh 0 0 35vw;
+}
+.container div {
+    border: 1px solid;
+    height: 7vh;
+  }
