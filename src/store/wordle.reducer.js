@@ -3,7 +3,8 @@ import { LOG, TECLADO } from './wordle.actions';
 export const getinitialState = () => ({
     attempts: 0,
     hits: null,
-    word:[]
+    word:[],
+    del:null
 });
 
 export const wordleReducer = (
@@ -22,14 +23,24 @@ export const wordleReducer = (
         } 
     case TECLADO:
         const { word } = state;
-        if(word.length < 30){
-            var cant = word.push(payload.keyAction);
+        var cant = word.length;
+       
+        if(payload.keyAction === 'DEL') {
+            word.pop();
+            var key = 'DEL'
+        } 
+        if(payload.keyAction === 'ENTER') {
+            var key = 'ENTER'
+        } 
+        if(cant <= 4 & payload.keyAction !== 'ENTER'){
+            if(word.length < 30 & payload.keyAction !== 'DEL'){
+                cant = word.push(payload.keyAction);
+            }
         }
-        
-  
         return {
             ...state,
-            attempts: cant
+            attempts: cant,
+            key: key
         }
     
     // eslint-disable-next-line no-fallthrough
