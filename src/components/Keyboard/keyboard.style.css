@@ -1,14 +1,25 @@
 .keyboard-container {
     position: fixed;
-    bottom: 0;
+    bottom: 2vw;
     text-align: center;
     width: 100vw;
-    border-style: groove;
     margin-bottom: 50px;
+    height: 12vw;
  }   
 .keyboard-container  input {
-    border-color: rgb(141, 143, 143);
-    width: 20vw;
+    border-color: rgb(172, 177, 177);
+    background-color: rgba(152, 163, 211, 0.301);
+    width: 4vw;
+    height: 5vw;
+    text-transform:uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0px;
+    margin: 4px;
+    border-radius: 10px;
 }
+.keyboard-container  input:hover {
+    background: rgba(152, 163, 211, 0.452);
+    border-color: rgb(172, 177, 177);
 
-
+}
