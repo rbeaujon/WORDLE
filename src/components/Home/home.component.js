@@ -12,11 +12,11 @@ export class Home extends PureComponent {
           <div className='container'>
            {
             word.map((key) => ( 
-            <div>{key}</div>
+            <div className='fill'>{key}</div>
           ))}
           {
             empty.map((vacio, id) => ( 
-            <div id={id}>{vacio}</div>
+            <div className='empty' id={id}>{vacio}</div>
           ))}
           </div> 
           <div className='keyboard-container'>

@@ -14,26 +14,41 @@ export const mapDispatchToProps = (dispatch) => ({
 
 export class HomeContainer extends PureComponent {
 
-  state = {
-    empty:[]
-   }
+  
+constructor(props) {
+    super(props)
+    this.state = { empty:[] };
+}    
+
+componentDidMount() {
+   this.getWord(); //Mount the component with the new word
+}  
+
+getWord(){ //Select a random words to play
+  var myWords = ['SANDY', 'APPLE', 'THREE', 'RANDOM', 'STACK', 'CLOUD'];
+  var rand = Math.random()*myWords.length | 0;
+  const word = myWords[rand];
+  this.setState({
+    word: word
+  })
+return word
+  
+}
 
 fill(){
   let { attempts, action, word } = this.props;
 
   //verification how many columns empty we need to create
   const empty = 30 - attempts;
-    if(attempts === 0 & action !== 'DEL'){ //add the firts 30 empty cell
+    if(attempts === 0 & action !== 'DEL' & this.state.empty <= 30){ //add the firts 30 empty cell
       
       for (var i=0; i<empty; i++) {
-        this.setState = {
-          empty: this.state.empty.push('')
-        }
+        
+        this.state.empty.push('')
      }}
     if(attempts > 0 & action !== 'DEL' & action !== 'ENTER'){//after add one letter we delete the last cell empty
-        this.setState = {
-          empty: this.state.empty.pop()
-        }
+      
+        this.state.empty.pop()
       }
     if(action === 'DEL' ){
       if(empty !== 30){ //condition to add a cell when it press the delete key
@@ -43,7 +58,9 @@ fill(){
     }  
     if(action === 'ENTER'){ 
       if(word.length === 5){ //Word verification when I have the 5 letters completed
-
+        if(this.myWord === word) {
+          alert('YOU WIN');
+        }
       }
       else{ //send a message with error to add more letters
         alert('YOU NEED TO ADD MORE LETTERS');
@@ -53,6 +70,7 @@ fill(){
 
   render() {
     this.fill();
+    console.log(this.state.word);
     return (
       <div>
         <Home 

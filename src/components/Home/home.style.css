@@ -1,13 +1,36 @@
 .container {
     display: grid;
-    grid-template-columns: 5vw 5vw 5vw 5vw 5vw;
-    grid-gap: 5px;
-    grid: 2px;
-    margin: 10vh 0 0 35vw;
+    grid-template-columns: 6vw 6vw 6vw 6vw 6vw;
+    grid-gap: 0px;
+    gap: 1.5% 0%;
+    margin: 4vh 0 0 35vw;
 }
-.container div {
-    border: 1px solid;
-    height: 7vh;
+.fill {
+    width: 5vw;
+    height: 9vh;
     text-align: center;
-    padding-top: 25% ;
+    font-size: 45px;
+    border: 1px solid;
+    animation-delay: 0.2s;
+    animation-name: zoom-border;
+    animation-duration: 0.2s;
+    animation-fill-mode:forwards;
+  }
+  @media  screen and (min-width: 1600px)  {
+    .fill{
+        padding-top: 1.5vh;
+    }   
+}
+.empty {
+    border: 1px solid;
+    width: 5vw;
+    height: 9vh;
+    text-align: center;
+    padding-top: 1.7vw ;
+  }  
+  @keyframes zoom-border {
+    0%   {border-color: black; border: 1px solid; transform: scale(1, 1);}
+    50%  {border-color: black; border: 1.5px solid; transform: scale(1.2, 1.2);}
+    100% {border-color: black; border: 2px solid; transform: scale(1, 1);}
+  
   }
