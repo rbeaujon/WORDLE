@@ -40,6 +40,61 @@
     text-align: center;
     padding-top: 1.7vw ;
   }  
+.message {
+  background-color: black;
+  position: relative;
+  height: 20vw;
+  background-size: cover;
+  opacity: 0.7;
+  z-index: 0;
+  animation-delay: 0.4s;
+  animation-name: slideUp;
+  animation-duration: 1s;
+  animation-fill-mode:forwards;
+} 
+.message button{
+  background-color: #050505; /* Green */
+  border: 2px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+}
+.message button:hover {
+  background-color: #070707; /* Green */
+  color: rgb(226, 221, 221);
+  font-size: 18px;
+}
+.bg {
+  z-index: 1;
+  color: rgb(0, 0, 0);
+  background-color: rgb(253, 252, 250);
+  width: 100vw;
+  height: 15vw;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  text-transform: uppercase;
+}
+#win {
+  font-size: 3vw;
+  padding: 1vw;
+  margin: 1vw 0 0 0;
+}
+#word {
+  padding: 1vw;
+  font-size: 2vw;
+}
+
+.hidden {
+  display: none;
+}
+  
+
+
   @keyframes zoom-border {
     0%   {border-color: black; border: 1px solid; transform: scale(1, 1);}
     50%  {border-color: black; border: 1.5px solid; transform: scale(1.2, 1.2);}
@@ -48,4 +103,8 @@
   @keyframes spinHorizontal {
     0% { transform: rotateY(360deg); }
     100% { transform: rotateY(0deg); }
-} 
+  } 
+  @keyframes slideUp {
+    0% { -webkit-transform: translateY(100%); }
+    100% { -webkit-transform: translateY(0); }
+}

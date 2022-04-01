@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { PureComponent } from 'react';
 import Home from './home.component';
-import { setWord, newLine, endGame} from '../../store/wordle.actions';
+import { setWord, newLine, endGame, setMessage} from '../../store/wordle.actions';
 
 export const mapStateToProps = (state) => {
   return {
@@ -9,12 +9,14 @@ export const mapStateToProps = (state) => {
     hits: state.wordleReducer.hits,
     word: state.wordleReducer.word,
     words: state.wordleReducer.words,
-    action: state.wordleReducer.key
+    action: state.wordleReducer.key,
+    message: state.wordleReducer.message
 }}
 export const mapDispatchToProps = (dispatch) => ({
   setWord: (index, color) => dispatch(setWord(index, color)),
   newLine: (hits) => dispatch(newLine(hits)),
-  endGame: () => dispatch(endGame())
+  endGame: () => dispatch(endGame()),
+  setMessage: (msg) => dispatch(setMessage(msg))
 });
 
 export class HomeContainer extends PureComponent {
@@ -23,6 +25,7 @@ export class HomeContainer extends PureComponent {
 constructor(props) {
     super(props)
     this.state = { empty:[], color:[] };
+    this.endGame = this.endGame.bind(this);
 }    
 
 componentDidMount() {
@@ -38,6 +41,12 @@ getWord(){ //Select a random words to play
   })
 return word
   
+}
+endGame(){
+      this.props.endGame();
+      this.setState({
+       empty: []
+      });
 }
 
 fill(){
@@ -105,12 +114,8 @@ fill(){
 
              //The word is exactly correct
              if(text === this.state.word){ 
-              alert('Same Word // WON');
-      
-              //this.props.endGame();
-            //   this.setState({
-            //     empty: []
-            // });
+              this.props.setMessage('message');
+    
             }
             //Reach the max attempts
             if(hits === 5){
@@ -128,6 +133,8 @@ fill(){
         <Home 
           { ...this.state }
           { ...this.props }
+          toFind = { this.state.word }
+          endGame = { this.endGame }
           />
       </div>
     )
