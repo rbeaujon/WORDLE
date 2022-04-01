@@ -43,7 +43,7 @@ var wordleReducer = function wordleReducer() {
     case _wordle.TECLADO:
       var cant = word.length;
 
-      if (payload.keyAction === 'DEL') {
+      if (payload.keyAction === 'DEL' && state.attempts >= 1 && cant > 0) {
         word.pop();
         words.pop();
         var key = 'DEL';
