@@ -68,7 +68,7 @@ fill(){
   //verification how many columns empty we need to create
   const empty = 30 - attempts;
   if(action !== 'error'){
-    if(attempts === 0 & action !== 'DEL' & this.state.empty <= 30 ){ //add the firts 30 empty cell
+    if(attempts === 0 & action !== 'DEL' & this.state.empty <= 30 & hits < 6 ){ //add the firts 30 empty cell
       
       for (var i=0; i<empty; i++) {
         
