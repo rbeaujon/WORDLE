@@ -3,13 +3,17 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.setWord = exports.keyboardAction = exports.Log = exports.SET_WORD = exports.TECLADO = exports.LOG = void 0;
+exports.endGame = exports.newLine = exports.setWord = exports.keyboardAction = exports.Log = exports.END_GAME = exports.NEW_LINE = exports.SET_WORD = exports.TECLADO = exports.LOG = void 0;
 var LOG = 'LOG';
 exports.LOG = LOG;
 var TECLADO = 'TECLADO';
 exports.TECLADO = TECLADO;
 var SET_WORD = 'SET_WORD';
 exports.SET_WORD = SET_WORD;
+var NEW_LINE = 'NEW_LINE';
+exports.NEW_LINE = NEW_LINE;
+var END_GAME = 'END_GAME';
+exports.END_GAME = END_GAME;
 
 var Log = function Log(attempts, hits) {
   return {
@@ -45,3 +49,23 @@ var setWord = function setWord(index, color) {
 };
 
 exports.setWord = setWord;
+
+var newLine = function newLine(hits) {
+  return {
+    type: NEW_LINE,
+    payload: {
+      hits: hits
+    }
+  };
+};
+
+exports.newLine = newLine;
+
+var endGame = function endGame() {
+  return {
+    type: END_GAME,
+    payload: {}
+  };
+};
+
+exports.endGame = endGame;
