@@ -13,6 +13,7 @@
     "sass": "^1.49.9",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://aistica.com/wordle/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
