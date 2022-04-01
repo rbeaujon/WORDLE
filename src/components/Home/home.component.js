@@ -25,8 +25,8 @@ export class Home extends PureComponent {
           </div>
           <div className={message.msg}>
             <div className='bg'>
-            <div id='win' className={message.win}>congratulations,you won</div>
-            <div id='word' className={message.win}>THE WORD WAS {toFind}</div>
+            <div className={message.win}>congratulations,you won</div>
+            <div className={message.word}>SORRY, TRY AGAIN... THE WORD WAS "{toFind}"</div>
             <button type="button" onClick={() => 
              endGame()} >Restart game 
             </button>

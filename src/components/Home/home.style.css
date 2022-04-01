@@ -79,12 +79,12 @@
   position: fixed;
   text-transform: uppercase;
 }
-#win {
+.win {
   font-size: 3vw;
   padding: 1vw;
   margin: 1vw 0 0 0;
 }
-#word {
+.word {
   padding: 1vw;
   font-size: 2vw;
 }

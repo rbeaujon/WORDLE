@@ -114,12 +114,22 @@ fill(){
 
              //The word is exactly correct
              if(text === this.state.word){ 
-              this.props.setMessage('message');
-    
+
+              const message = {
+                msg: 'message',
+                win: 'win',
+                word: 'hidden'
+              }
+              this.props.setMessage(message);
             }
             //Reach the max attempts
             if(hits === 5){
-              this.props.endGame();
+              const message = {
+                msg: 'message',
+                win: 'hidden',
+                word: 'word'
+              }
+              this.props.setMessage(message);
             }
     
     } 
@@ -127,7 +137,6 @@ fill(){
 
   render() {
     this.fill();
-    console.log('La palabra es ' + this.state.word);
     return (
       <div>
         <Home 

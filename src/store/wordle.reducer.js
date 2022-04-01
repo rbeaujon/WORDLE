@@ -90,9 +90,9 @@ export const wordleReducer = (
         return {
             ...state,
             message: {
-                msg:  payload.message,
-                win: 'show',
-                word: 'show'
+                msg:  payload.message.msg,
+                win: payload.message.win,
+                word: payload.message.word
             }
         }                          
     // eslint-disable-next-line no-fallthrough
