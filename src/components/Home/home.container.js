@@ -64,7 +64,7 @@ fill(){
     if(action === 'ENTER'){
      
       if(words.length % 5 === 0 ){ //Word verification when I have the 5 letters completed
-        let text = word.toString();
+        var text = word.toString();
         text = text.replace(/,/g, '');
         let p = 0
         /* Verification for same letter and position */
@@ -91,17 +91,6 @@ fill(){
           }
           p++;
         }
-       /* ENDING GAME IF */
-
-             //The word is exactly correct
-             if(text === this.state.word){ 
-              alert('Same Word // WON');
-              this.props.endGame();
-            }
-            //Reach the max attempts
-            if(hits === 5){
-              this.props.endGame();
-            }
 
             // Set attempts 
             hits++;
@@ -112,6 +101,21 @@ fill(){
       else{ //send a message with error to add more letters
         alert('YOU NEED TO ADD MORE LETTERS');
       }
+             /* ENDING GAME IF */
+
+             //The word is exactly correct
+             if(text === this.state.word){ 
+              alert('Same Word // WON');
+      
+              //this.props.endGame();
+            //   this.setState({
+            //     empty: []
+            // });
+            }
+            //Reach the max attempts
+            if(hits === 5){
+              this.props.endGame();
+            }
     
     } 
 }

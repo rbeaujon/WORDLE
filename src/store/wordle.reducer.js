@@ -5,7 +5,7 @@ export const getinitialState = () => ({
     hits: 0,
     word:[],
     words:[],
-    key:null
+    key:''
 });
 
 export const wordleReducer = (
@@ -63,16 +63,15 @@ export const wordleReducer = (
             ...state,
             attempts: 0,
             word:[],
-            key: null,
+            key:'',
             hits: payload.hits
         } 
     case END_GAME:
         
         return {
-            ...state,
             attempts: 0,
             word:[],
-            key: null,
+            key: '',
             hits: 0,
             words: []
         }                  

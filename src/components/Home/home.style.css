@@ -10,7 +10,7 @@
     height: 9vh;
     text-align: center;
     font-size: 45px;
-    border: 1px solid;
+    border: 2px solid;
     animation-delay: 0.2s;
     animation-name: zoom-border;
     animation-duration: 0.2s;
@@ -18,9 +18,15 @@
   }
   .green {
     background-color: rgb(4, 160, 51);
+    animation-delay: 0;
+    animation-name: spinHorizontal;
+    animation-duration: 2s;
   }
   .orange {
     background-color: rgb(255, 167, 52);
+    animation-delay: 0;
+    animation-name: spinHorizontal;
+    animation-duration: 2s;
   }
   @media  screen and (min-width: 1600px)  {
     .fill{
@@ -38,5 +44,8 @@
     0%   {border-color: black; border: 1px solid; transform: scale(1, 1);}
     50%  {border-color: black; border: 1.5px solid; transform: scale(1.2, 1.2);}
     100% {border-color: black; border: 2px solid; transform: scale(1, 1);}
-  
   }
+  @keyframes spinHorizontal {
+    0% { transform: rotateY(360deg); }
+    100% { transform: rotateY(0deg); }
+} 
