@@ -26,6 +26,7 @@ constructor(props) {
     super(props)
     this.state = { empty:[], color:[] };
     this.endGame = this.endGame.bind(this);
+    this.close = this.close.bind(this);
 }    
 
 componentDidMount() {
@@ -48,19 +49,32 @@ endGame(){
        empty: []
       });
 }
+close(){
+  let message = {
+  msg: 'hidden',
+  win: 'hidden',
+  word: 'hidden',
+  error: 'hidden',
+  btn: 'hidden',
+  key: 'error'
+  
+}
+this.props.setMessage(message);
+}
 
 fill(){
   let { attempts, action, word, words, hits } = this.props;
  
   //verification how many columns empty we need to create
   const empty = 30 - attempts;
-    if(attempts === 0 & action !== 'DEL' & this.state.empty <= 30){ //add the firts 30 empty cell
+  if(action !== 'error'){
+    if(attempts === 0 & action !== 'DEL' & this.state.empty <= 30 ){ //add the firts 30 empty cell
       
       for (var i=0; i<empty; i++) {
         
         this.state.empty.push('')
      }}
-    if(attempts > 0 & action !== 'DEL' & action !== 'ENTER'){//after add one letter we delete the last cell empty
+    if(attempts > 0 & action !== 'DEL' & action !== 'ENTER' ){//after add one letter we delete the last cell empty
       
         this.state.empty.pop()
       }
@@ -68,7 +82,7 @@ fill(){
       if(empty !== 30){ //condition to add a cell when it press the delete key
         this.state.empty.push('');
       }
-    
+    }
     }  
     if(action === 'ENTER'){
      
@@ -108,26 +122,39 @@ fill(){
            
       }
       else{ //send a message with error to add more letters
-        alert('YOU NEED TO ADD MORE LETTERS');
+      if(word.length < 5 && this.props.message.error !== 'error') {
+        let message = {
+                msg: 'message',
+                win: 'hidden',
+                word: 'hidden',
+                error: 'error',
+                btn: 'hidden',
+                key: 'ENTER'
+              }
+        this.props.setMessage(message);
+      }
+      
       }
              /* ENDING GAME IF */
 
              //The word is exactly correct
              if(text === this.state.word){ 
 
-              const message = {
+              let message = {
                 msg: 'message',
                 win: 'win',
-                word: 'hidden'
+                word: 'hidden',
+                error: 'hidden'
               }
               this.props.setMessage(message);
             }
             //Reach the max attempts
-            if(hits === 5){
-              const message = {
+            if(hits === 6){
+              let message = {
                 msg: 'message',
                 win: 'hidden',
-                word: 'word'
+                word: 'word',
+                error: 'hidden'
               }
               this.props.setMessage(message);
             }
@@ -137,6 +164,7 @@ fill(){
 
   render() {
     this.fill();
+
     return (
       <div>
         <Home 
@@ -144,6 +172,7 @@ fill(){
           { ...this.props }
           toFind = { this.state.word }
           endGame = { this.endGame }
+          close = { this.close }
           />
       </div>
     )

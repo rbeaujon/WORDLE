@@ -52,7 +52,7 @@
   animation-duration: 1s;
   animation-fill-mode:forwards;
 } 
-.message button{
+.button{
   background-color: #050505; /* Green */
   border: 2px;
   color: white;
@@ -63,7 +63,7 @@
   font-size: 16px;
   border-radius: 10px;
 }
-.message button:hover {
+.button:hover {
   background-color: #070707; /* Green */
   color: rgb(226, 221, 221);
   font-size: 18px;
@@ -88,6 +88,14 @@
   padding: 1vw;
   font-size: 2vw;
 }
+.error {
+  padding: 1vw;
+  font-size: 2vw;
+  animation-delay: 0;
+  animation-name: slideUp-error;
+  animation-duration: 2s;
+  animation-fill-mode:backwards;
+}
 
 .hidden {
   display: none;
@@ -107,4 +115,8 @@
   @keyframes slideUp {
     0% { -webkit-transform: translateY(100%); }
     100% { -webkit-transform: translateY(0); }
-}
+  }
+  @keyframes slideUp-error {
+    0% { -webkit-transform: translateY(100%); }
+    100% { -webkit-transform: translateY(0); }
+  }

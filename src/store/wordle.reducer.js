@@ -9,7 +9,9 @@ export const getinitialState = () => ({
     message: {
         msg: 'hidden',
         win: 'hidden',
-        fail: 'hidden'
+        word: 'hidden',
+        error: 'hidden',
+        btn: 'hidden'
     }
 });
 
@@ -89,10 +91,13 @@ export const wordleReducer = (
         
         return {
             ...state,
+            key: payload.message.key,
             message: {
                 msg:  payload.message.msg,
                 win: payload.message.win,
-                word: payload.message.word
+                word: payload.message.word,
+                error: payload.message.error,
+                btn: payload.message.btn
             }
         }                          
     // eslint-disable-next-line no-fallthrough
