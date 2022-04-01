@@ -1,11 +1,16 @@
-import { LOG, TECLADO, SET_WORD, NEW_LINE, END_GAME } from './wordle.actions';
+import { LOG, TECLADO, SET_WORD, NEW_LINE, END_GAME, SET_MESSAGE} from './wordle.actions';
 
 export const getinitialState = () => ({
     attempts: 0,
     hits: 0,
     word:[],
     words:[],
-    key:''
+    key:'',
+    message: {
+        msg: 'hidden',
+        win: 'hidden',
+        fail: 'hidden'
+    }
 });
 
 export const wordleReducer = (
@@ -73,8 +78,23 @@ export const wordleReducer = (
             word:[],
             key: '',
             hits: 0,
-            words: []
-        }                  
+            words: [],
+            message: {
+                msg: 'hidden',
+                win: 'hidden',
+                fail: 'hidden'
+            }
+        }   
+    case SET_MESSAGE:
+        
+        return {
+            ...state,
+            message: {
+                msg:  payload.message,
+                win: 'show',
+                word: 'show'
+            }
+        }                          
     // eslint-disable-next-line no-fallthrough
     default:
             return state;

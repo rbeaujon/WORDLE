@@ -3,7 +3,7 @@ export const TECLADO = 'TECLADO';
 export const SET_WORD = 'SET_WORD';
 export const NEW_LINE = 'NEW_LINE';
 export const END_GAME = 'END_GAME';
-
+export const SET_MESSAGE = 'SET_MESSAGE';
 
 export const Log = (attempts, hits) => ({
     type: LOG,
@@ -32,10 +32,13 @@ export const newLine = (hits) => ({
         hits
     }
 });
-
 export const endGame = () => ({
     type: END_GAME,
+    payload: {}
+});
+export const setMessage = (message) => ({
+    type: SET_MESSAGE,
     payload: {
-        
+        message
     }
 });
