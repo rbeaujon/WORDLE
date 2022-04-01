@@ -6,7 +6,9 @@ export class Home extends PureComponent {
 
     render() {
       
-      let { words, empty, toFind, message, endGame } = this.props;
+      let { words, empty, toFind, message, endGame, close } = this.props;
+    
+
       return (
         <div>
           <div className='container'>
@@ -27,8 +29,12 @@ export class Home extends PureComponent {
             <div className='bg'>
             <div className={message.win}>congratulations,you won</div>
             <div className={message.word}>SORRY, TRY AGAIN... THE WORD WAS "{toFind}"</div>
-            <button type="button" onClick={() => 
+            <div className={message.error}>SORRY, YOU NEED TO ADD MORE LETTERS </div>
+            <button type="button" className={message.btn} onClick={() => 
              endGame()} >Restart game 
+            </button>
+            <button type="button" className={message.error} onClick={() => 
+             close()} >Close
             </button>
             </div>
           </div>
