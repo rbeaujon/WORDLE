@@ -16,6 +16,12 @@
     animation-duration: 0.2s;
     animation-fill-mode:forwards;
   }
+  .green {
+    background-color: rgb(4, 160, 51);
+  }
+  .orange {
+    background-color: rgb(255, 167, 52);
+  }
   @media  screen and (min-width: 1600px)  {
     .fill{
         padding-top: 1.5vh;

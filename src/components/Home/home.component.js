@@ -6,13 +6,14 @@ export class Home extends PureComponent {
 
     render() {
       
-      let { word, empty } = this.props;
+      let { words, empty } = this.props;
       return (
         <div>
           <div className='container'>
            {
-            word.map((key) => ( 
-            <div className='fill'>{key}</div>
+             
+            words.map((key) => ( 
+            <div className={key.color}>{key.letter}</div>
           ))}
           {
             empty.map((vacio, id) => ( 

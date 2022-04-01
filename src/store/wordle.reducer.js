@@ -1,9 +1,10 @@
-import { LOG, TECLADO } from './wordle.actions';
+import { LOG, TECLADO, SET_WORD } from './wordle.actions';
 
 export const getinitialState = () => ({
     attempts: 0,
     hits: null,
     word:[],
+    words:[],
     del:null
 });
 
@@ -12,6 +13,7 @@ export const wordleReducer = (
     action
 ) => {
     const { payload, type } = action;
+    const { word, words } = state;
 
     switch (type) {
 
@@ -22,19 +24,24 @@ export const wordleReducer = (
             hits:  payload.hits
         } 
     case TECLADO:
-        const { word } = state;
         var cant = word.length;
        
         if(payload.keyAction === 'DEL') {
             word.pop();
+            words.pop();
             var key = 'DEL'
         } 
         if(payload.keyAction === 'ENTER') {
-            var key = 'ENTER'
+            key = 'ENTER'
         } 
         if(cant <= 4 & payload.keyAction !== 'ENTER'){
-            if(word.length < 30 & payload.keyAction !== 'DEL'){
+            if(word.length < 30 & payload.keyAction !== 'DEL'){ //register every letter to be check it
+               let  obj = {
+                    letter: payload.keyAction,
+                    color: 'fill'
+                };
                 cant = word.push(payload.keyAction);
+                var hit = words.push(obj);
             }
         }
         return {
@@ -42,7 +49,15 @@ export const wordleReducer = (
             attempts: cant,
             key: key
         }
-    
+    case SET_WORD:
+        
+        const {index, color} = payload;
+        words[index].color = color;
+        
+        return {
+            ...state
+        } 
+
     // eslint-disable-next-line no-fallthrough
     default:
             return state;
