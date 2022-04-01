@@ -16,10 +16,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var getinitialState = function getinitialState() {
   return {
     attempts: 0,
-    hits: null,
+    hits: 0,
     word: [],
     words: [],
-    del: null
+    key: null
   };
 };
 
@@ -75,6 +75,23 @@ var wordleReducer = function wordleReducer() {
           color = payload.color;
       words[index].color = color;
       return _objectSpread({}, state);
+
+    case _wordle.NEW_LINE:
+      return _objectSpread({}, state, {
+        attempts: 0,
+        word: [],
+        key: null,
+        hits: payload.hits
+      });
+
+    case _wordle.END_GAME:
+      return _objectSpread({}, state, {
+        attempts: 0,
+        word: [],
+        key: null,
+        hits: 0,
+        words: []
+      });
     // eslint-disable-next-line no-fallthrough
 
     default:

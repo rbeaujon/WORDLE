@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { PureComponent } from 'react';
 import Home from './home.component';
-import { setWord } from '../../store/wordle.actions';
+import { setWord, newLine, endGame} from '../../store/wordle.actions';
 
 export const mapStateToProps = (state) => {
   return {
@@ -12,7 +12,9 @@ export const mapStateToProps = (state) => {
     action: state.wordleReducer.key
 }}
 export const mapDispatchToProps = (dispatch) => ({
-  setWord: (index, color) => dispatch(setWord(index, color))
+  setWord: (index, color) => dispatch(setWord(index, color)),
+  newLine: (hits) => dispatch(newLine(hits)),
+  endGame: () => dispatch(endGame())
 });
 
 export class HomeContainer extends PureComponent {
@@ -39,8 +41,8 @@ return word
 }
 
 fill(){
-  let { attempts, action, word, words } = this.props;
-
+  let { attempts, action, word, words, hits } = this.props;
+ 
   //verification how many columns empty we need to create
   const empty = 30 - attempts;
     if(attempts === 0 & action !== 'DEL' & this.state.empty <= 30){ //add the firts 30 empty cell
@@ -59,45 +61,58 @@ fill(){
       }
     
     }  
-    if(action === 'ENTER'){ 
-      if(word.length === 5){ //Word verification when I have the 5 letters completed
+    if(action === 'ENTER'){
+     
+      if(words.length % 5 === 0 ){ //Word verification when I have the 5 letters completed
         let text = word.toString();
         text = text.replace(/,/g, '');
-
+        let p = 0
         /* Verification for same letter and position */
-          for (var x = 0; x< 5; x++) { //by UI
-            var charWord = this.state.word.charAt(x);
-          
+          for (var x = hits * 5; x< words.length; x++) { //by UI
+            var charWord = this.state.word.charAt(p);
             for (var i = 0; i< 5; i++) { // by local
+              
               var charLocal = this.state.word.charAt(i);
-              if(word[x] === charLocal && x !== i){ //char UI / charLocal
+              if(word[p] === charLocal && x !== i){ //char UI / charLocal
                 //there is a similar caracter and set the state (orange), add className
                 this.props.setWord(x, 'fill orange')
               }
-              if(word[x] === charWord){
+              if(word[p] === charWord){
                 //add the index into the array state color, add className 
                 this.props.setWord(x, 'fill green')
               }
-              var checkDoubleLettersState = this.state.word.split(word[x]).length-1;
-              var checkDoubleLettersInput = text.split(word[x]).length-1;
+              var checkDoubleLettersState = this.state.word.split(word[p]).length-1;
+              var checkDoubleLettersInput = text.split(word[p]).length-1;
               var checkColor = words[x].color;
 
               if(checkDoubleLettersState < checkDoubleLettersInput && checkColor === 'fill orange'){
                 this.props.setWord(x, 'fill')
               }
           }
+          p++;
         }
-             /* The word is exactly our radom word */
+       /* ENDING GAME IF */
+
+             //The word is exactly correct
              if(text === this.state.word){ 
               alert('Same Word // WON');
+              this.props.endGame();
             }
-   
+            //Reach the max attempts
+            if(hits === 5){
+              this.props.endGame();
+            }
 
-        
+            // Set attempts 
+            hits++;
+            p++;
+            this.props.newLine(hits);
+           
       }
       else{ //send a message with error to add more letters
         alert('YOU NEED TO ADD MORE LETTERS');
       }
+    
     } 
 }
 
