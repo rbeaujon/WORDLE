@@ -16,4 +16,4 @@ After each guess, the color of the tiles will change to show how close your gues
 
 
 ## Game
-<img src="/assets/screenshots/won.jpg" width="80%">
+<img src="/src/assets/screenshots/won.jpg" width="80%">
