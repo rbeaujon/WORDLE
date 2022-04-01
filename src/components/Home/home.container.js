@@ -39,7 +39,7 @@ return word
 }
 
 fill(){
-  let { attempts, action, word } = this.props;
+  let { attempts, action, word, words } = this.props;
 
   //verification how many columns empty we need to create
   const empty = 30 - attempts;
@@ -64,30 +64,34 @@ fill(){
         let text = word.toString();
         text = text.replace(/,/g, '');
 
-        /* The word is exactly our radom word */
-        if(text === this.state.word){ 
-          alert('Same Word // WON');
-        }
-        else{
         /* Verification for same letter and position */
           for (var x = 0; x< 5; x++) { //by UI
-            var charLocal = this.state.word.charAt(x);
-            if(word[x] === charLocal){
-              //add the index into the array state color, add className 
-              this.props.setWord(x, 'fill green')
-
-            }
-      
+            var charWord = this.state.word.charAt(x);
+          
             for (var i = 0; i< 5; i++) { // by local
-              charLocal = this.state.word.charAt(i);
+              var charLocal = this.state.word.charAt(i);
               if(word[x] === charLocal && x !== i){ //char UI / charLocal
                 //there is a similar caracter and set the state (orange), add className
                 this.props.setWord(x, 'fill orange')
               }
+              if(word[x] === charWord){
+                //add the index into the array state color, add className 
+                this.props.setWord(x, 'fill green')
+              }
+              var checkDoubleLettersState = this.state.word.split(word[x]).length-1;
+              var checkDoubleLettersInput = text.split(word[x]).length-1;
+              var checkColor = words[x].color;
+
+              if(checkDoubleLettersState < checkDoubleLettersInput && checkColor === 'fill orange'){
+                this.props.setWord(x, 'fill')
+              }
           }
         }
-      
-        }
+             /* The word is exactly our radom word */
+             if(text === this.state.word){ 
+              alert('Same Word // WON');
+            }
+   
 
         
       }
