@@ -13,7 +13,7 @@ Each guess must be a valid five-letter word. Hit the enter button to register yo
 
 After each guess, the color of the tiles will change to show how close your guess was to the word.
 
-###Good luck!
+### Good luck!
 
 ## Project Hosting 
 <https://aistica.com/wordle/>
