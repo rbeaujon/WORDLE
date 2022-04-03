@@ -149,7 +149,7 @@ fill(){
               this.props.setMessage(message);
             }
             //Reach the max attempts
-            if(hits === 6){
+            if(hits === 6 && text !== this.state.word){
               let message = {
                 msg: 'message',
                 win: 'hidden',
