@@ -50,7 +50,7 @@
   animation-fill-mode:forwards;
 } 
 .button{
-  background-color: #050505; /* Green */
+  background-color: #636060; /* Green */
   border: 2px;
   color: white;
   padding: 15px 32px;
@@ -61,7 +61,7 @@
   border-radius: 10px;
 }
 .button:hover {
-  background-color: #070707; /* Green */
+  background-color: #177f8d; /* Green */
   color: rgb(226, 221, 221);
   font-size: 18px;
 }
