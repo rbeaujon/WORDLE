@@ -26,8 +26,12 @@
 }
 
 /* RESPONSIVE DESIGN FOR MOBILE */
+
+/* HIGH RESOLUTION such as IPHONE 13Pro until mid range */
+
+/****** PORTRAIT *************/
 @media  only screen 
-and (min-device-width: 375px) 
+and (min-device-width: 360px) 
 and (max-device-width: 915px)  
 and (orientation: portrait)   {
     .keyboard-container {
@@ -42,5 +46,69 @@ and (orientation: portrait)   {
         width: 9vw;
         margin: 1px;
         height: 15vw;
+    }   
+} 
+/****** LANDSCAPE *************/
+@media  only screen 
+and (min-device-width: 350px) 
+and (max-device-width: 915px)  
+and (orientation: landscape)   {
+    .keyboard-container {
+        bottom: 20vw;
+        width: 100vw;
+        height: 10vw;
+        margin: 10px 0 -130px 0;
+        padding-right: 10px;
+     }   
+
+    .keyboard-container  input {
+        width: 5vw;
+        margin: 2px;
+        height: 3vw;
+    }   
+} 
+
+/* LOW RESOLUTION */
+
+/****** PORTRAIT *************/
+@media  only screen 
+and (min-device-width: 200px) 
+and (max-device-width: 359px) 
+and (orientation: portrait)   {
+    .keyboard-container {
+        bottom: 20vw;
+        width: 110vw;
+        height: 1vw;
+        margin-bottom: 50px;
+        padding-right: 45px;
+        
+     }   
+
+    .keyboard-container  input {
+        width: 6vw;
+        margin: 1px;
+        height: 10vw;
+        font-size: 10px;
+    }   
+} 
+/****** LANDSCAPE *************/
+@media  only screen 
+and (min-device-width: 200px) 
+and (max-device-width: 359px) 
+and (orientation: landscape)   {
+    .keyboard-container {
+        bottom: 20vw;
+        width: 120vw;
+        height: 1vw;
+        margin-bottom: 10vw;
+        padding-right: 23vw;
+     }   
+
+    .keyboard-container  input {
+        width: 9vw;
+        margin: 1px;
+        height:8vw;
+        font-size: 10px;
+        border-radius: 15%;
     }   
 } 
