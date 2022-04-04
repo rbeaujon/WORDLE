@@ -24,7 +24,7 @@ export class HomeContainer extends PureComponent {
   
 constructor(props) {
     super(props)
-    this.state = { empty:[], color:[] };
+    this.state = { empty:[], color:[], same:[], orange:[] };
     this.endGame = this.endGame.bind(this);
     this.close = this.close.bind(this);
 }    
@@ -34,7 +34,8 @@ componentDidMount() {
 }  
 
 getWord(){ //Select a random words to play
-  var myWords = ['SANDY', 'APPLE', 'THREE', 'RANDY', 'STACK', 'CLOUD'];
+ // var myWords = ['SANDY', 'APPLE', 'THREE', 'RANDY', 'STACK', 'CLOUD'];
+ var myWords = ['AAPEE'];
   var rand = Math.random()*myWords.length | 0;
   const word = myWords[rand];
   this.setState({
@@ -104,16 +105,69 @@ fill(){
                 //add the index into the array state color, add className 
                 this.props.setWord(x, 'fill green')
               }
-              var checkDoubleLettersState = this.state.word.split(word[p]).length-1;
-              var checkDoubleLettersInput = text.split(word[p]).length-1;
-              var checkColor = words[x].color;
 
-              if(checkDoubleLettersState < checkDoubleLettersInput && checkColor === 'fill orange'){
-                this.props.setWord(x, 'fill')
-              }
+              
+
+              // if(checkDoubleLettersState < checkDoubleLettersInput && checkColor === 'fill orange' ){
+
+              //   if(text.split(word[p]).length-1 > 1 && skip === 0){
+              
+              //     skip =1;
+              //   }
+              // } 
+   
+              // if(skip === 1 && text.split(word[p]).length-1 > 1 && checkColor !== 'fill green'  ){
+              //     this.props.setWord(x, 'fill');
+              //     skip = 0;
+              // }
+
           }
           p++;
         }
+            /* Duplicate letters verification */
+
+        for (var j = hits * 5; j< words.length; j++) { 
+          var checkDoubleLettersState = this.state.word.split(words[j].letter).length-1;
+          var checkDoubleLettersInput = text.split(words[j].letter).length-1;
+          const { same, orange } = this.state;
+
+          if(words[j].color === 'fill green'){
+
+            for (var f = hits * 5; f< words.length; f++) { 
+              
+              if(words[j].letter === words[f].letter && j !== f && words[f].color !== 'fill green' && checkDoubleLettersState < checkDoubleLettersInput ){
+                
+                same.push(f);
+              } 
+            }
+            if(same.length > 1){
+              for (let g = 1; g< same.length; g++) {
+              this.props.setWord(same[g], 'fill');
+            }
+            this.setState({
+              same:[]
+            })
+          }
+        }
+        if(words[j].color === 'fill orange'){
+          for (var h = hits * 5; h< words.length; h++) { 
+            if(words[j].letter === words[h].letter && j !== f && words[h].color !== 'fill green' && checkDoubleLettersState < checkDoubleLettersInput && orange.length < checkDoubleLettersInput ){
+              orange.push(h);
+            }
+
+          }
+          if(orange.length > 1){
+            for (let k = checkDoubleLettersState; k< orange.length; k++) {
+            this.props.setWord(orange[k], 'fill');
+          }
+          this.setState({
+            orange:[]
+          })
+
+        }
+      }
+      }
+
 
             // Set attempts 
             hits++;
@@ -163,6 +217,7 @@ fill(){
 }
 
   render() {
+    console.log("Word: " + this.state.word  )
     this.fill();
 
     return (
