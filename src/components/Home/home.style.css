@@ -124,8 +124,12 @@
     }   
   } 
 /* RESPONSIVE DESIGN FOR MOBILE */
+
+/* HIGH RESOLUTION such as IPHONE 13Pro until mid range */
+
+/****** PORTRAIT *************/
   @media  only screen 
-  and (min-device-width: 375px) 
+  and (min-device-width: 350px) 
   and (max-device-width: 915px)  
   and (orientation: portrait)   {
     .container {
@@ -135,7 +139,7 @@
       padding: 4px;
     }
     .fill {
-      width: 15vw;
+      width: 18vw;
       height: 9vh;
       text-align: center;
       font-size: 50px;
@@ -180,3 +184,177 @@
       margin-top: 5vw;
     }
   } 
+
+  /****** LANDSCAPE *************/
+  @media  only screen 
+  and (min-device-width: 350px) 
+  and (max-device-width: 915px) 
+  and (orientation: landscape)   {
+    .container {
+      grid-template-columns: 6vw 6vw 6vw 6vw 6vw;
+      gap: 2% 5%;
+      margin: 4vh 0 0 25vw;
+      padding: 4px;
+    }
+    .fill {
+      width: 8.5vw;
+      height: 7.5vh;
+      text-align: center;
+      font-size: 20px;
+      border: 5px solid;
+      padding-top: 0.2vw ;
+      animation-delay: 0.2s;
+      animation-name: zoom-border;
+      animation-duration: 0.2s;
+      animation-fill-mode:forwards;
+    }
+
+    .empty {
+      border: 1px solid;
+      width: 8.5vw;
+      height: 7.5vh;
+      padding-top: 2vw ;
+      }  
+    .message {
+      height: 100vw;
+    }   
+    .bg {
+      height: 12vw;
+      margin-top: 2vw;
+    }
+    .win {
+      font-size: 3vw;
+      padding: 1vw;
+      margin: 1vw 0 0 0;
+    }
+    .button{
+      padding: 10px 20px;
+      font-size: 10px;
+      border-radius: 30px;
+    }
+    .word {
+      padding: 2vw;
+      font-size: 3vw;
+    }
+    .error {
+      font-size: 2vw;
+      margin-top: 0vw;
+    }
+  } 
+
+/* LOW RESOLUTION */
+
+/****** PORTRAIT *************/
+@media  only screen 
+and (min-device-width: 200px) 
+and (max-device-width: 359px) 
+and (orientation: portrait)   {
+  .container {
+    grid-template-columns: 6vw 6vw 6vw 6vw 6vw ;
+    gap: 1% 13.5%;
+    margin: 4vh 0 0 0;
+    padding: 4px;
+  }
+  .fill {
+    width: 17vw;
+    height: 8vh;
+    text-align: center;
+    font-size: 15px;
+    border: 5px solid;
+    padding-top: 0;
+    animation-delay: 0.2s;
+    animation-name: zoom-border;
+    animation-duration: 0.2s;
+    animation-fill-mode:forwards;
+  }
+
+  .empty {
+    border: 1px solid;
+    width: 17vw;
+    height: 8vh;
+    padding-top: 1.7vw ;
+    }  
+  .message {
+    height: 100vw;
+  }   
+  .bg {
+    height: 50vw;
+    margin-top: 10vw;
+  }
+  .win {
+    font-size: 6vw;
+    padding: 4vw;
+    margin: 7vw 0 0 0;
+  }
+  .button{
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 30px;
+  }
+  .word {
+    padding: 7vw;
+    font-size: 7vw;
+  }
+  .error {
+    padding: 4vw;
+    font-size: 5vw;
+    margin-top: 5vw;
+  }
+} 
+
+/****** LANDSCAPE *************/
+@media  only screen 
+and (min-device-width: 200px) 
+and (max-device-width: 359px) 
+and (orientation: landscape)   {
+  .container {
+    grid-template-columns: 2vw 2vw 2vw 2vw 2vw;
+    gap: 2% 17%;
+    margin: 2vh 0 0 7vw;
+    padding: 4px;
+  }
+  .fill {
+    width: 15vw;
+    height: 8vh;
+    text-align: center;
+    font-size: 20px;
+    border: 5px solid;
+    padding-top: 0 ;
+    animation-delay: 0.2s;
+    animation-name: zoom-border;
+    animation-duration: 0.2s;
+    animation-fill-mode:forwards;
+  }
+
+  .empty {
+    border: 1px solid;
+    width: 15vw;
+    height: 8vh;
+    padding-top: 2vw ;
+    }  
+  .message {
+    height: 100vw;
+  }   
+  .bg {
+    height: 12vw;
+    margin-top: 2vw;
+  }
+  .win {
+    font-size: 3vw;
+    padding: 1vw;
+    margin: 1vw 0 0 0;
+  }
+  .button{
+    padding: 10px 20px;
+    font-size: 10px;
+    border-radius: 30px;
+  }
+  .word {
+    padding: 2vw;
+    font-size: 3vw;
+  }
+  .error {
+    font-size: 2vw;
+    margin-top: 0vw;
+  }
+} 
