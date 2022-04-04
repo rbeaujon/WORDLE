@@ -31,16 +31,16 @@ and (min-device-width: 375px)
 and (max-device-width: 915px)  
 and (orientation: portrait)   {
     .keyboard-container {
-        bottom: 30vw;
+        bottom: 20vw;
         width: 100vw;
-        height: 15vw;
+        height: 20vw;
         margin-bottom: 50px;
+        padding-right: 10px;
      }   
 
     .keyboard-container  input {
         width: 9vw;
         margin: 1px;
         height: 15vw;
-        font-size:15px;
     }   
 } 
