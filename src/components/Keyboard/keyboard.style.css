@@ -23,3 +23,25 @@
     border-color: rgb(172, 177, 177);
 
 }
+
+/* RESPONSIVE DESIGN FOR MOBILE */
+@media  only screen and (min-width: 1000px) and (min-height: 2200px)   {
+    .keyboard-container {
+        bottom: 30vw;
+        width: 100vw;
+        height: 15vw;
+        margin-bottom: 50px;
+     }   
+
+    .keyboard-container  input {
+        width: 9vw;
+        height: 15vw;
+    }   
+  } 
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+}

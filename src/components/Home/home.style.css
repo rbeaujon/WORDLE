@@ -28,11 +28,7 @@
     animation-name: spinHorizontal;
     animation-duration: 2s;
   }
-  @media  screen and (min-width: 1600px)  {
-    .fill{
-        padding-top: 1.5vh;
-    }   
-}
+
 .empty {
     border: 1px solid;
     width: 5vw;
@@ -120,3 +116,63 @@
     0% { -webkit-transform: translateY(100%); }
     100% { -webkit-transform: translateY(0); }
   }
+
+  @media  screen and (min-width: 1600px)  {
+    .fill{
+        padding-top: 1.5vh;
+    }   
+  } 
+/* RESPONSIVE DESIGN FOR MOBILE */
+  @media  only screen and (min-width: 1000px) and (min-height: 2200px)   {
+    .container {
+      grid-template-columns: 6vw 6vw 6vw 6vw 6vw;
+      grid-gap: 20px;
+      gap: 3% 15%;
+      margin: 4vh 0 0 0vw;
+    }
+    .fill {
+      width: 15vw;
+      height: 9vh;
+      text-align: center;
+      font-size: 120px;
+      border: 5px solid;
+      padding-top: 25px ;
+      animation-delay: 0.2s;
+      animation-name: zoom-border;
+      animation-duration: 0.2s;
+      animation-fill-mode:forwards;
+    }
+
+    .empty {
+      border: 1px solid;
+      width: 15vw;
+      height: 9vh;
+      padding-top: 1.7vw ;
+      }  
+    .message {
+      height: 90vw;
+    }   
+    .bg {
+      height: 50vw;
+      margin-top: 10vw;
+    }
+    .win {
+      font-size: 6vw;
+      padding: 4vw;
+      margin: 7vw 0 0 0;
+    }
+    .button{
+      padding: 30px 50px;
+      font-size: 40px;
+      border-radius: 30px;
+    }
+    .word {
+      padding: 7vw;
+      font-size: 7vw;
+    }
+    .error {
+      padding: 4vw;
+      font-size: 5vw;
+      margin-top: 5vw;
+    }
+  } 
