@@ -129,9 +129,10 @@
   and (max-device-width: 915px)  
   and (orientation: portrait)   {
     .container {
-      grid-template-columns: 3vw 3vw 3vw 3vw 3vw;
-      gap: 1% 15%;
-      margin: 4vh 0 0 8vw;
+      grid-template-columns: 10vw 10vw 10vw 10vw 10vw;
+      gap: 1% 10%;
+      margin: 4vh 0 0 0;
+      padding: 4px;
     }
     .fill {
       width: 15vw;
@@ -139,7 +140,7 @@
       text-align: center;
       font-size: 50px;
       border: 5px solid;
-      padding-top: 10px ;
+      padding-top: 1vw ;
       animation-delay: 0.2s;
       animation-name: zoom-border;
       animation-duration: 0.2s;
@@ -148,7 +149,7 @@
 
     .empty {
       border: 1px solid;
-      width: 15vw;
+      width: 18vw;
       height: 9vh;
       padding-top: 1.7vw ;
       }  
