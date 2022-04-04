@@ -198,6 +198,7 @@ fill(){
                 msg: 'message',
                 win: 'win',
                 word: 'hidden',
+                btn: 'button',
                 error: 'hidden'
               }
               this.props.setMessage(message);
@@ -208,6 +209,7 @@ fill(){
                 msg: 'message',
                 win: 'hidden',
                 word: 'word',
+                btn: 'button',
                 error: 'hidden'
               }
               this.props.setMessage(message);

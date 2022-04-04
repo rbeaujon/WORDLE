@@ -25,3 +25,6 @@ After each guess, the color of the tiles will change to show how close your gues
 
 <img src="/src/assets/screenshots/won.jpg" width="80%">
 
+<img src="/src/assets/screenshots/needMoreLetters.jpg" width="80%">
+
+<img src="/src/assets/screenshots/missAll.jpg" width="80%">
