@@ -34,8 +34,7 @@ componentDidMount() {
 }  
 
 getWord(){ //Select a random words to play
- // var myWords = ['SANDY', 'APPLE', 'THREE', 'RANDY', 'STACK', 'CLOUD'];
- var myWords = ['AAPEE'];
+  var myWords = ['ABOUT', 'APPLE', 'THREE', 'OTHER', 'STACK', 'CLOUD', 'ANGER','ABUSE','AGENT','NASIC','BEACH','DRIVE','BEGIN','AFTER','WHERE','DREAM'];
   var rand = Math.random()*myWords.length | 0;
   const word = myWords[rand];
   this.setState({
@@ -106,25 +105,11 @@ fill(){
                 this.props.setWord(x, 'fill green')
               }
 
-              
-
-              // if(checkDoubleLettersState < checkDoubleLettersInput && checkColor === 'fill orange' ){
-
-              //   if(text.split(word[p]).length-1 > 1 && skip === 0){
-              
-              //     skip =1;
-              //   }
-              // } 
-   
-              // if(skip === 1 && text.split(word[p]).length-1 > 1 && checkColor !== 'fill green'  ){
-              //     this.props.setWord(x, 'fill');
-              //     skip = 0;
-              // }
-
           }
           p++;
         }
-            /* Duplicate letters verification */
+        
+        /* Duplicate letters verification */
 
         for (var j = hits * 5; j< words.length; j++) { 
           var checkDoubleLettersState = this.state.word.split(words[j].letter).length-1;
@@ -167,7 +152,6 @@ fill(){
         }
       }
       }
-
 
             // Set attempts 
             hits++;
@@ -219,7 +203,7 @@ fill(){
 }
 
   render() {
-    console.log("Word: " + this.state.word  )
+    
     this.fill();
 
     return (

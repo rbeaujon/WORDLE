@@ -3,6 +3,7 @@
     bottom: 2vw;
     text-align: center;
     width: 100vw;
+    padding: 2px;
     margin-bottom: 50px;
     height: 12vw;
  }   
@@ -25,7 +26,10 @@
 }
 
 /* RESPONSIVE DESIGN FOR MOBILE */
-@media  only screen and (min-width: 1000px) and (min-height: 2200px)   {
+@media  only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 915px)  
+and (orientation: portrait)   {
     .keyboard-container {
         bottom: 30vw;
         width: 100vw;
@@ -35,13 +39,8 @@
 
     .keyboard-container  input {
         width: 9vw;
+        margin: 1px;
         height: 15vw;
+        font-size:15px;
     }   
-  } 
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: portrait) { 
-
-}
+} 
