@@ -34,7 +34,7 @@ componentDidMount() {
 }  
 
 getWord(){ //Select a random words to play
-  var myWords = ['ABOUT', 'APPLE', 'THREE', 'OTHER', 'STACK', 'CLOUD', 'ANGER','ABUSE','AGENT','NASIC','BEACH','DRIVE','BEGIN','AFTER','WHERE','DREAM'];
+  var myWords = ['ABOUT', 'APPLE', 'THREE', 'OTHER', 'STACK', 'CLOUD', 'ANGER','ABUSE','AGENT','BASIC','BEACH','DRIVE','BEGIN','AFTER','WHERE','DREAM'];
   var rand = Math.random()*myWords.length | 0;
   const word = myWords[rand];
   this.setState({
@@ -48,18 +48,35 @@ endGame(){
       this.setState({
        empty: []
       });
+      this.getWord();
 }
-close(){
-  let message = {
-  msg: 'hidden',
-  win: 'hidden',
-  word: 'hidden',
-  error: 'hidden',
-  btn: 'hidden',
-  key: 'error'
+close(message){
+  if(message='error'){
+    let message = {
+    msg: 'hidden',
+    win: 'hidden',
+    word: 'hidden',
+    error: 'hidden',
+    btn: 'hidden',
+    key: 'error',
+    welcome:'hidden'
   
-}
-this.props.setMessage(message);
+    }
+    this.props.setMessage(message);
+  }
+
+  if(message="welcome"){
+    let message = {
+      msg: 'hidden',
+      win: 'hidden',
+      word: 'hidden',
+      error: 'hidden',
+      btn: 'hidden',
+      key: 'error',
+      welcome: 'hidden'
+    }
+    this.props.setMessage(message);
+    }
 }
 
 fill(){
@@ -154,23 +171,28 @@ fill(){
       }
 
             // Set attempts 
-            hits++;
+            if(word.length !== 0){
+              hits++;
+            }
+            
             p++;
             this.props.newLine(hits);
            
       }
-      else{ //send a message with error to add more letters
-      if(word.length < 5 && this.props.message.error !== 'error') {
-        let message = {
-                msg: 'message',
-                win: 'hidden',
-                word: 'hidden',
-                error: 'error',
-                btn: 'hidden',
-                key: 'ENTER'
-              }
-        this.props.setMessage(message);
-      }
+      else{ 
+        //send a message with error to add more letters
+        if(word.length < 5 && this.props.message.error !== 'error') {
+          let message = {
+                  msg: 'message',
+                  win: 'hidden',
+                  word: 'hidden',
+                  error: 'error',
+                  btn: 'hidden',
+                  key: 'ENTER',
+                  welcome:'hidden'
+                }
+          this.props.setMessage(message);
+        }
       
       }
              /* ENDING GAME IF */
@@ -183,7 +205,8 @@ fill(){
                 win: 'win',
                 word: 'hidden',
                 btn: 'button',
-                error: 'hidden'
+                error: 'hidden',
+                welcome:'hidden'
               }
               this.props.setMessage(message);
             }
@@ -194,7 +217,8 @@ fill(){
                 win: 'hidden',
                 word: 'word',
                 btn: 'button',
-                error: 'hidden'
+                error: 'hidden',
+                welcome:'hidden'
               }
               this.props.setMessage(message);
             }
@@ -205,7 +229,7 @@ fill(){
   render() {
     
     this.fill();
-
+    console.log(this.state.word)
     return (
       <div>
         <Home 
