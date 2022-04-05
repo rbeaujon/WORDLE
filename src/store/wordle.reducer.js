@@ -7,11 +7,12 @@ export const getinitialState = () => ({
     words:[],
     key:'',
     message: {
-        msg: 'hidden',
+        msg: 'message',
         win: 'hidden',
         word: 'hidden',
         error: 'hidden',
-        btn: 'hidden'
+        btn: 'hidden',
+        welcome: 'welcome'
     }
 });
 
@@ -97,7 +98,8 @@ export const wordleReducer = (
                 win: payload.message.win,
                 word: payload.message.word,
                 error: payload.message.error,
-                btn: payload.message.btn
+                btn: payload.message.btn,
+                welcome: payload.message.welcome
             }
         }                          
     // eslint-disable-next-line no-fallthrough

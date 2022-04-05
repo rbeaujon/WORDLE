@@ -1,12 +1,17 @@
+
 .container {
+    position: absolute;
     display: grid;
     grid-template-columns: 6vw 6vw 6vw 6vw 6vw;
-    grid-gap: 0px;
-    gap: 1.5% 0%;
-    margin: 4vh 0 0 35vw;
+    grid-gap: 10px;
+    gap: 1% 7%;
+    margin: 4vh 0 0 30vw;
+    align-items:center;
+    align-content:center;
+    
 }
 .fill {
-    width: 5vw;
+    width: 7vw;
     height: 9vh;
     text-align: center;
     font-size: 45px;
@@ -31,14 +36,15 @@
 
 .empty {
     border: 1px solid;
-    width: 5vw;
+    width: 7vw;
     height: 9vh;
     text-align: center;
     padding-top: 1.7vw ;
   }  
 .message {
   background-color: rgba(7, 7, 7, 0.575);
-  position: relative;
+  position: fixed;
+  bottom: 0;
   height: 20vw;
   width: 100vw;
   background-size: cover;
@@ -47,10 +53,10 @@
   animation-delay: 0.4s;
   animation-name: slideUp;
   animation-duration: 1s;
-  animation-fill-mode:forwards;
+  animation-fill-mode:backwards;
 } 
 .button{
-  background-color: #636060; /* Green */
+  background-color: #636060; 
   border: 2px;
   color: white;
   padding: 15px 32px;
@@ -61,7 +67,7 @@
   border-radius: 10px;
 }
 .button:hover {
-  background-color: #177f8d; /* Green */
+  background-color: #177f8d; 
   color: rgb(226, 221, 221);
   font-size: 18px;
 }
@@ -70,7 +76,8 @@
   color: rgb(0, 0, 0);
   background-color: rgb(253, 252, 250);
   width: 100vw;
-  height: 15vw;
+  height: 14vw;
+  margin-top: 3vw ;
   align-items: center;
   text-align: center;
   position: fixed;
@@ -88,10 +95,22 @@
 .error {
   padding: 1vw;
   font-size: 2vw;
-  animation-delay: 0;
-  animation-name: slideUp-error;
-  animation-duration: 2s;
-  animation-fill-mode:backwards;
+}
+.welcome {
+  padding: 1vw;
+  font-size: 0.7vw;
+  text-align: left;
+}
+#close{
+  background-color: #18668a; 
+  border: 2px;
+  color: white;
+  padding: 7px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-top: 0vw;
 }
 
 .hidden {
@@ -113,10 +132,6 @@
     0% { -webkit-transform: translateY(100%); }
     100% { -webkit-transform: translateY(0); }
   }
-  @keyframes slideUp-error {
-    0% { -webkit-transform: translateY(100%); }
-    100% { -webkit-transform: translateY(0); }
-  }
 
   @media  screen and (min-width: 1600px)  {
     .fill{
@@ -129,12 +144,12 @@
 
 /****** PORTRAIT *************/
   @media  only screen 
-  and (min-device-width: 350px) 
+  and (min-device-width: 360px) 
   and (max-device-width: 915px)  
   and (orientation: portrait)   {
     .container {
       grid-template-columns: 10vw 10vw 10vw 10vw 10vw;
-      gap: 1% 10%;
+      gap: 1% 17%;
       margin: 4vh 0 0 0;
       padding: 4px;
     }
@@ -161,7 +176,7 @@
       height: 100vw;
     }   
     .bg {
-      height: 50vw;
+      height: 60vw;
       margin-top: 10vw;
     }
     .win {
@@ -178,22 +193,39 @@
       padding: 7vw;
       font-size: 7vw;
     }
+
+    .welcome {
+      padding: 1vw;
+      font-size: 2vw;
+      text-align: left;
+    }
+    #close{
+      background-color: #18668a; 
+      border: 2px;
+      color: white;
+      padding: 3px 15px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 10px;
+      border-radius: 10px;
+      margin-top: 0vw;
+    }
     .error {
       padding: 4vw;
-      font-size: 5vw;
+      font-size: 4vw;
       margin-top: 5vw;
     }
   } 
 
   /****** LANDSCAPE *************/
   @media  only screen 
-  and (min-device-width: 350px) 
+  and (min-device-width: 360px) 
   and (max-device-width: 915px) 
   and (orientation: landscape)   {
     .container {
       grid-template-columns: 6vw 6vw 6vw 6vw 6vw;
-      gap: 2% 5%;
-      margin: 4vh 0 0 25vw;
+      gap: 2% 10%;
+      margin: 4vh 0 0 27vw;
       padding: 4px;
     }
     .fill {
@@ -216,16 +248,32 @@
       padding-top: 2vw ;
       }  
     .message {
-      height: 100vw;
+      height: 32vw;
     }   
     .bg {
-      height: 12vw;
+      height: 25vw;
       margin-top: 2vw;
     }
     .win {
       font-size: 3vw;
       padding: 1vw;
       margin: 1vw 0 0 0;
+    }
+    .welcome {
+      padding: 1vw;
+      font-size: 1.2vw;
+      text-align: left;
+    }
+    #close{
+      background-color: #18668a; 
+      border: 2px;
+      color: white;
+      padding: 3px 15px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 10px;
+      border-radius: 10px;
+      margin-top: 0vw;
     }
     .button{
       padding: 10px 20px;
@@ -238,7 +286,7 @@
     }
     .error {
       font-size: 2vw;
-      margin-top: 0vw;
+      margin-top: 2vw;
     }
   } 
 
@@ -251,7 +299,7 @@ and (max-device-width: 359px)
 and (orientation: portrait)   {
   .container {
     grid-template-columns: 6vw 6vw 6vw 6vw 6vw ;
-    gap: 1% 13.5%;
+    gap: 1% 43%;
     margin: 4vh 0 0 0;
     padding: 4px;
   }
@@ -259,7 +307,7 @@ and (orientation: portrait)   {
     width: 17vw;
     height: 8vh;
     text-align: center;
-    font-size: 15px;
+    font-size: 45px;
     border: 5px solid;
     padding-top: 0;
     animation-delay: 0.2s;
@@ -286,18 +334,34 @@ and (orientation: portrait)   {
     padding: 4vw;
     margin: 7vw 0 0 0;
   }
+  .welcome {
+    padding: 1vw;
+    font-size: 2vw;
+    text-align: left;
+  }
+  #close{
+    background-color: #18668a; 
+    border: 2px;
+    color: white;
+    padding: 3px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10px;
+    border-radius: 10px;
+    margin-top: 0vw;
+  }
   .button{
-    padding: 10px 20px;
-    font-size: 20px;
+    padding: 7px 15px;
+    font-size: 10px;
     border-radius: 30px;
   }
   .word {
     padding: 7vw;
-    font-size: 7vw;
+    font-size: 4vw;
   }
   .error {
     padding: 4vw;
-    font-size: 5vw;
+    font-size:3.9vw;
     margin-top: 5vw;
   }
 } 
