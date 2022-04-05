@@ -136,6 +136,9 @@ fill(){
           if(words[j].color === 'fill green'){
 
             for (var f = hits * 5; f< words.length; f++) { 
+              if(words[j].letter === words[f].letter && j !== f && checkDoubleLettersState < checkDoubleLettersInput && words[f].color === 'fill orange'){
+                this.props.setWord(f, 'fill');
+              }
               
               if(words[j].letter === words[f].letter && j !== f && words[f].color !== 'fill green' && checkDoubleLettersState < checkDoubleLettersInput ){
                 
@@ -153,7 +156,7 @@ fill(){
         }
         if(words[j].color === 'fill orange'){
           for (var h = hits * 5; h< words.length; h++) { 
-            if(words[j].letter === words[h].letter && j !== f && words[h].color !== 'fill green' && checkDoubleLettersState < checkDoubleLettersInput && orange.length < checkDoubleLettersInput ){
+            if(words[j].letter === words[h].letter && j !== h && words[h].color !== 'fill green' && checkDoubleLettersState < checkDoubleLettersInput && orange.length < checkDoubleLettersInput ){
               orange.push(h);
             }
 
