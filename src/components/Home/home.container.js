@@ -171,7 +171,7 @@ fill(){
       }
 
             // Set attempts 
-            if(word !== ''){
+            if(word.length !== 0){
               hits++;
             }
             
