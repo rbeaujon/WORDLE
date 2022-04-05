@@ -45,7 +45,7 @@
   background-color: rgba(7, 7, 7, 0.575);
   position: fixed;
   bottom: 0;
-  height: 20vw;
+  height: 35vw;
   width: 100vw;
   background-size: cover;
   opacity: 1;
@@ -76,7 +76,7 @@
   color: rgb(0, 0, 0);
   background-color: rgb(253, 252, 250);
   width: 100vw;
-  height: 14vw;
+  height: 25vw;
   margin-top: 3vw ;
   align-items: center;
   text-align: center;
@@ -85,21 +85,21 @@
 }
 .win {
   font-size: 3vw;
-  padding: 1vw;
+  padding: 4vw;
   margin: 1vw 0 0 0;
 }
 .word {
-  padding: 1vw;
+  padding: 4vw;
   font-size: 2vw;
 }
 .error {
-  padding: 1vw;
+  padding: 4vw;
   font-size: 2vw;
 }
 .welcome {
   padding: 1vw;
-  font-size: 0.7vw;
-  text-align: left;
+  font-size: 1.2vw;
+  text-align: justify;
 }
 #close{
   background-color: #18668a; 
@@ -173,11 +173,12 @@
       padding-top: 1.7vw ;
       }  
     .message {
-      height: 100vw;
+      height: 160vw;
     }   
     .bg {
-      height: 60vw;
+      height: 135vw;
       margin-top: 10vw;
+      padding: 20px;
     }
     .win {
       font-size: 6vw;
@@ -196,8 +197,8 @@
 
     .welcome {
       padding: 1vw;
-      font-size: 2vw;
-      text-align: left;
+      font-size: 4.5vw;
+      text-align: justify;
     }
     #close{
       background-color: #18668a; 
@@ -323,11 +324,12 @@ and (orientation: portrait)   {
     padding-top: 1.7vw ;
     }  
   .message {
-    height: 100vw;
+    height: 160vw;
   }   
   .bg {
-    height: 50vw;
+    height: 135vw;
     margin-top: 10vw;
+    padding: 20px;
   }
   .win {
     font-size: 6vw;
@@ -336,8 +338,8 @@ and (orientation: portrait)   {
   }
   .welcome {
     padding: 1vw;
-    font-size: 2vw;
-    text-align: left;
+    font-size: 4.5vw;
+    text-align: justify;
   }
   #close{
     background-color: #18668a; 
